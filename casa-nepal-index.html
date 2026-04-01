@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>Casa Nepal — Nepali & Indian Cuisine · Torre del Mar, Málaga</title>
+  <meta name="description" content="Authentic Nepali & Indian cuisine in Torre del Mar, Málaga. Momo, Tandoori, Biryani, Curries and more. Book your table or order takeaway. Tel: 951 003 267." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    a[href^="tel"] { color: inherit !important; text-decoration: none !important; }
+
+    :root {
+      --saffron: #E8931A;
+      --saffron-light: #F5B84C;
+      --saffron-dark: #C47A10;
+      --crimson: #C0392B;
+      --crimson-hover: #A93226;
+      --teal: #1A6B6B;
+      --radius: 10px;
+      --transition: 0.35s ease;
+    }
+    [data-theme="dark"] {
+      --bg: #0D0B08;
+      --bg-alt: #131009;
+      --bg-card: #18140D;
+      --bg-elevated: #201A11;
+      --surface: #2C2418;
+      --border: rgba(232,147,26,0.14);
+      --border-strong: rgba(232,147,26,0.32);
+      --text-primary: #F7EDDA;
+      --text-secondary: rgba(247,237,218,0.58);
+      --text-muted: rgba(247,237,218,0.3);
+      --nav-bg: rgba(13,11,8,0.94);
+    }
+    [data-theme="light"] {
+      --bg: #FDFAF2;
+      --bg-alt: #F5EDDC;
+      --bg-card: #FFFFFF;
+      --bg-elevated: #FDF6E8;
+      --surface: #EDE0C8;
+      --border: rgba(180,120,30,0.15);
+      --border-strong: rgba(180,120,30,0.32);
+      --text-primary: #1A1208;
+      --text-secondary: #5C4422;
+      --text-muted: #9C7840;
+      --nav-bg: rgba(253,250,242,0.95);
+    }
+
+    /* ── WHATSAPP FLOAT ── */
+    .whatsapp-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      background: #25D366; border-radius: 50px;
+      display: flex; align-items: center; gap: 9px;
+      padding: 10px 18px 10px 13px;
+      box-shadow: 0 6px 28px rgba(37,211,102,0.45);
+      transition: transform .25s ease, box-shadow .25s ease;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(37,211,102,0.55); }
+    .whatsapp-float svg { flex-shrink: 0; }
+    .whatsapp-label { display: flex; flex-direction: column; line-height: 1.25; }
+    .whatsapp-label strong { font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 600; color: #fff; letter-spacing: 0.02em; white-space: nowrap; }
+    .whatsapp-label span { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; color: rgba(255,255,255,0.82); font-weight: 400; }
+    @media (max-width:600px) { .whatsapp-float { bottom: 18px; right: 18px; padding: 8px 14px 8px 11px; } }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text-primary); font-size: 16px; line-height: 1.7; overflow-x: hidden; transition: background var(--transition), color var(--transition); }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity .75s ease, transform .75s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-45px); transition: opacity .75s ease, transform .75s ease; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(45px); transition: opacity .75s ease, transform .75s ease; }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .delay-1 { transition-delay: .1s !important; }
+    .delay-2 { transition-delay: .2s !important; }
+    .delay-3 { transition-delay: .3s !important; }
+    .delay-4 { transition-delay: .4s !important; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 5vw;
+      background: transparent;
+      transition: background .4s, box-shadow .4s, padding .3s;
+    }
+    nav.scrolled {
+      background: var(--nav-bg);
+      backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+      box-shadow: 0 1px 0 var(--border);
+      padding: .8rem 5vw;
+    }
+    @media (max-width:900px) {
+      nav { background: rgba(10,8,4,0.94) !important; backdrop-filter: blur(18px); box-shadow: 0 1px 0 rgba(232,147,26,0.12); }
+      [data-theme="light"] nav { background: rgba(253,250,242,0.97) !important; }
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-mark {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--saffron-dark), var(--saffron));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff;
+      box-shadow: 0 4px 16px rgba(232,147,26,0.5);
+      flex-shrink: 0;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .nav-logo:hover .logo-mark { transform: scale(1.08) rotate(-5deg); box-shadow: 0 6px 22px rgba(232,147,26,0.65); }
+    .logo-wordmark { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff; letter-spacing: 0.02em; line-height: 1; }
+    .logo-wordmark span { color: var(--saffron); }
+    nav.scrolled .logo-wordmark { color: var(--text-primary); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { text-decoration: none; color: rgba(255,255,255,0.8); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; transition: color .2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1.5px; background: var(--saffron); transform: scaleX(0); transform-origin: left; transition: transform .3s; }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    nav.scrolled .nav-links a { color: var(--text-secondary); }
+    .nav-links a:hover { color: var(--saffron) !important; }
+    .nav-cta { background: var(--crimson) !important; color: #fff !important; padding: 0.5rem 1.3rem; border-radius: 30px; transition: background .2s, transform .15s, box-shadow .2s !important; letter-spacing: 0.06em !important; }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--crimson-hover) !important; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.4) !important; }
+
+    /* Theme toggle */
+    .theme-toggle { background: none; border: 1.5px solid rgba(255,255,255,0.25); border-radius: 30px; cursor: pointer; width: 52px; height: 28px; position: relative; transition: border-color .3s; flex-shrink: 0; }
+    nav.scrolled .theme-toggle { border-color: var(--border-strong); }
+    .theme-toggle:hover { border-color: var(--saffron); }
+    .theme-toggle-knob { position: absolute; top: 3px; left: 4px; width: 20px; height: 20px; border-radius: 50%; background: #fff; transition: transform .3s cubic-bezier(.34,1.56,.64,1), background .3s; display: flex; align-items: center; justify-content: center; font-size: 11px; }
+    [data-theme="light"] .theme-toggle-knob { transform: translateX(24px); background: var(--saffron); }
+    [data-theme="light"] .theme-toggle { background: rgba(232,147,26,0.12); }
+
+    /* Language selector */
+    .lang-selector { position: relative; }
+    .lang-btn { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; padding: 5px 12px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 500; color: rgba(255,255,255,0.8); transition: background .2s, border-color .2s; }
+    nav.scrolled .lang-btn { color: var(--text-secondary); border-color: var(--border-strong); background: var(--bg-elevated); }
+    .lang-btn:hover { background: rgba(232,147,26,0.15); border-color: var(--saffron); }
+    .lang-dropdown { position: absolute; top: calc(100% + 8px); right: 0; background: var(--bg-elevated); border: 1px solid var(--border-strong); border-radius: 10px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.4); display: none; min-width: 120px; z-index: 300; }
+    .lang-selector.open .lang-dropdown { display: block; }
+    .lang-option { display: flex; align-items: center; gap: 8px; padding: 9px 14px; cursor: pointer; font-size: 0.82rem; color: var(--text-secondary); transition: background .15s, color .15s; }
+    .lang-option:hover { background: rgba(232,147,26,0.12); color: var(--saffron); }
+    .lang-option.active { color: var(--saffron); font-weight: 600; }
+
+    /* Hamburger */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 201; border: none; background: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; border-radius: 2px; background: rgba(255,255,255,0.85); transition: background .3s, transform .3s, opacity .3s; }
+    nav.scrolled .hamburger span { background: var(--text-primary); }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+    /* Mobile nav panel */
+    .mobile-nav { position: fixed; inset: 0; background: rgba(13,11,8,0.97); backdrop-filter: blur(20px); z-index: 199; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; transform: translateX(100%); transition: transform .4s cubic-bezier(.77,0,.18,1); }
+    [data-theme="light"] .mobile-nav { background: rgba(253,250,242,0.97); }
+    .mobile-nav.open { transform: translateX(0); }
+    .mobile-nav a { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--text-primary); text-decoration: none; transition: color .2s; }
+    .mobile-nav a:hover { color: var(--saffron); }
+    .mobile-nav-bottom { display: flex; gap: 16px; align-items: center; margin-top: 1rem; }
+
+    /* ── HERO ── */
+    #hero { min-height: 100vh; position: relative; overflow: hidden; display: flex; align-items: center; }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; animation: heroZoom 16s ease-in-out infinite alternate; }
+    @keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.06); } }
+    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(130deg, rgba(10,8,4,0.9) 0%, rgba(10,8,4,0.6) 50%, rgba(192,57,43,0.2) 100%); }
+    .hero-grain { position: absolute; inset: 0; z-index: 2; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); opacity: 0.4; pointer-events: none; }
+    .hero-content { position: relative; z-index: 3; padding: 160px 5vw 100px; max-width: 740px; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 14px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--saffron); margin-bottom: 2rem; animation: fadeDown .8s .2s ease both; }
+    .hero-eyebrow::before, .hero-eyebrow::after { content: ''; display: block; width: 28px; height: 1px; background: var(--saffron); }
+    @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 5.8rem); line-height: 1.03; color: #fff; margin-bottom: 1.6rem; animation: fadeUp .9s .35s ease both; font-weight: 700; }
+    h1 em { color: var(--saffron-light); font-style: italic; display: block; }
+    .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,0.68); max-width: 480px; margin-bottom: 3rem; font-weight: 300; line-height: 1.9; animation: fadeUp .9s .5s ease both; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp .9s .65s ease both; }
+    .btn-primary { background: var(--crimson); color: #fff; padding: 1rem 2.5rem; border-radius: 30px; text-decoration: none; font-size: 0.86rem; font-weight: 500; letter-spacing: 0.06em; transition: background .25s, transform .2s, box-shadow .25s; box-shadow: 0 6px 28px rgba(192,57,43,0.45); text-transform: uppercase; }
+    .btn-primary:hover { background: var(--crimson-hover); transform: translateY(-3px); box-shadow: 0 14px 36px rgba(192,57,43,0.5); }
+    .btn-outline { border: 1.5px solid rgba(255,255,255,0.38); color: #fff; padding: 1rem 2.5rem; border-radius: 30px; text-decoration: none; font-size: 0.86rem; font-weight: 500; letter-spacing: 0.06em; transition: border-color .25s, background .25s, transform .2s; backdrop-filter: blur(6px); text-transform: uppercase; }
+    .btn-outline:hover { border-color: var(--saffron); background: rgba(232,147,26,0.16); transform: translateY(-3px); }
+    .hero-stats { display: flex; gap: 0; margin-top: 4.5rem; border-top: 1px solid rgba(255,255,255,0.09); animation: fadeUp .9s .8s ease both; flex-wrap: wrap; }
+    .hero-stat { padding: 1.6rem 2.5rem 0.8rem 0; margin-right: 2.5rem; border-right: 1px solid rgba(255,255,255,0.08); }
+    .hero-stat:last-child { border-right: none; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.3rem; font-weight: 700; color: var(--saffron); display: block; line-height: 1; }
+    .stat-label { font-size: 0.68rem; color: rgba(255,255,255,0.42); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 4px; display: block; }
+    .hero-badges { position: absolute; right: 5vw; top: 50%; transform: translateY(-50%); z-index: 3; display: flex; flex-direction: column; gap: 12px; animation: fadeIn 1.2s 1.2s ease both; }
+    .hero-badge { background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 13px 18px; display: flex; align-items: center; gap: 12px; color: #fff; transition: background .3s, transform .3s, border-color .3s; cursor: default; }
+    .hero-badge:hover { background: rgba(232,147,26,0.2); transform: translateX(-8px); border-color: rgba(232,147,26,0.4); }
+    .hero-badge .b-icon { font-size: 1.6rem; }
+    .hero-badge .b-text strong { display: block; font-size: 0.86rem; font-weight: 500; }
+    .hero-badge .b-text span { font-size: 0.7rem; color: rgba(255,255,255,0.48); }
+    .scroll-ind { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(255,255,255,0.38); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; animation: fadeIn 1s 1.6s ease both; }
+    .scroll-line { width: 1px; height: 44px; background: linear-gradient(to bottom, rgba(232,147,26,0.6), transparent); animation: scrollPulse 2.2s ease-in-out infinite; }
+    @keyframes scrollPulse { 0%,100%{opacity:.3;transform:scaleY(.8)} 50%{opacity:1;transform:scaleY(1)} }
+
+    /* ── SECTION BASE ── */
+    section { padding: 110px 5vw; }
+    .section-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--saffron); display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+    .section-tag::after { content: ''; flex: 0 0 28px; height: 1px; background: var(--saffron); }
+    h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.1rem, 4.5vw, 3.4rem); line-height: 1.08; color: var(--text-primary); margin-bottom: 1rem; font-weight: 700; }
+    h2 em { color: var(--crimson); font-style: italic; }
+    .section-lead { font-size: 1rem; color: var(--text-secondary); max-width: 540px; font-weight: 300; margin-bottom: 3rem; line-height: 1.9; }
+
+    /* ── ABOUT ── */
+    #about { background: var(--bg-alt); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-visual { position: relative; }
+    .about-img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; border-radius: 14px; overflow: hidden; }
+    .about-img-grid img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform .6s ease; }
+    .about-img-grid img:hover { transform: scale(1.04); }
+    .about-badge { position: absolute; bottom: -20px; right: -20px; background: var(--crimson); color: #fff; border-radius: 50%; width: 112px; height: 112px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; box-shadow: 0 10px 35px rgba(192,57,43,0.5); text-align: center; padding: 12px; z-index: 2; }
+    .about-badge strong { font-size: 1.1rem; line-height: 1.2; }
+    .about-badge span { font-size: 0.48rem; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; opacity: 0.82; }
+    .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2rem; }
+    .feature-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.4rem; transition: border-color .3s, transform .3s, box-shadow .3s; }
+    .feature-card:hover { border-color: var(--saffron); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
+    .feature-icon { font-size: 1.5rem; margin-bottom: 0.6rem; display: block; }
+    .feature-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.3rem; }
+    .feature-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── SHOWCASE ── */
+    #showcase { background: var(--bg); padding: 0 0 110px; overflow: hidden; }
+    .showcase-header { padding: 110px 5vw 60px; }
+    .showcase-strip { display: flex; gap: 0; width: max-content; animation: stripScroll 28s linear infinite; }
+    .showcase-strip:hover { animation-play-state: paused; }
+    @keyframes stripScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .showcase-item { position: relative; width: 320px; height: 400px; flex-shrink: 0; overflow: hidden; }
+    .showcase-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
+    .showcase-item:hover img { transform: scale(1.07); }
+    .showcase-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); padding: 30px 20px 18px; color: #fff; }
+    .showcase-label span { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--saffron); display: block; margin-bottom: 4px; }
+    .showcase-label strong { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; display: block; }
+    .showcase-label em { font-size: 0.78rem; color: rgba(255,255,255,0.6); font-style: italic; }
+
+    /* ── MENU ── */
+    #menu { background: var(--bg-alt); }
+    .menu-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .menu-tab { background: var(--bg-card); border: 1px solid var(--border); border-radius: 30px; padding: 7px 18px; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 500; color: var(--text-secondary); cursor: pointer; transition: all .2s; letter-spacing: 0.04em; }
+    .menu-tab:hover { border-color: var(--saffron); color: var(--saffron); }
+    .menu-tab.active { background: var(--saffron); border-color: var(--saffron); color: #fff; font-weight: 600; }
+    .menu-section { display: none; }
+    .menu-section.active { display: block; }
+    .menu-cat-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--saffron); margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); letter-spacing: 0.04em; }
+    .menu-cat-title:first-child { margin-top: 0; }
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; }
+    .menu-item { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: 1.1rem 1.3rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); transition: border-color .25s, transform .25s, box-shadow .25s; }
+    .menu-item:hover { border-color: var(--saffron); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.18); }
+    .menu-item-name { font-family: 'Playfair Display', serif; font-size: 0.96rem; font-weight: 700; color: var(--text-primary); margin-bottom: 3px; }
+    .menu-item-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+    .menu-item-price { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--saffron); white-space: nowrap; padding-top: 1px; }
+    .spicy { display: inline; color: #E74C3C; font-size: 0.7rem; margin-left: 4px; }
+    .menu-cat-note { font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-bottom: 1rem; }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--bg); }
+    .exp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .exp-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 2rem 1.5rem; text-align: center; transition: border-color .3s, transform .3s, box-shadow .3s; }
+    .exp-card:hover { border-color: var(--saffron); transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.2); }
+    .exp-icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
+    .exp-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
+    .exp-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── RESERVATION ── */
+    #reservation { background: var(--bg-alt); }
+    .res-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: flex-start; }
+    .res-info { padding-top: 1rem; }
+    .res-info-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 1.8rem; margin-bottom: 1.2rem; display: flex; gap: 1.2rem; align-items: flex-start; transition: border-color .3s; }
+    .res-info-card:hover { border-color: var(--saffron); }
+    .res-info-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .res-info-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.3rem; }
+    .res-info-card p, .res-info-card a { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; text-decoration: none; }
+    .res-info-card a:hover { color: var(--saffron); }
+    .res-form { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; }
+    .res-form h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.8rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; }
+    .form-group label { font-size: 0.76rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+    .form-group input, .form-group select, .form-group textarea { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 8px; padding: 0.75rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--text-primary); transition: border-color .2s, box-shadow .2s; outline: none; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--saffron); box-shadow: 0 0 0 3px rgba(232,147,26,0.15); }
+    .form-group select option { background: var(--bg-elevated); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-submit { width: 100%; background: var(--crimson); color: #fff; border: none; padding: 1rem; border-radius: 30px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: background .25s, transform .2s, box-shadow .25s; box-shadow: 0 6px 24px rgba(192,57,43,0.4); margin-top: 0.5rem; }
+    .form-submit:hover { background: var(--crimson-hover); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(192,57,43,0.5); }
+    .form-note { font-size: 0.76rem; color: var(--text-muted); text-align: center; margin-top: 0.8rem; }
+    .success-msg { display: none; text-align: center; padding: 3rem 2rem; }
+    .success-msg .success-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+    .success-msg h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--saffron); margin-bottom: 0.5rem; }
+    .success-msg p { color: var(--text-secondary); font-size: 0.9rem; }
+
+    /* ── LOCATION ── */
+    #location { background: var(--bg); }
+    .location-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .location-map { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); height: 420px; }
+    .location-map iframe { width: 100%; height: 100%; border: none; display: block; }
+    .location-details { display: flex; flex-direction: column; gap: 1.2rem; }
+    .location-detail { display: flex; gap: 1rem; align-items: flex-start; }
+    .loc-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+    .loc-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--saffron); margin-bottom: 3px; }
+    .loc-value { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+    .location-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 1rem; }
+    .btn-sm { padding: 0.7rem 1.8rem; font-size: 0.82rem; letter-spacing: 0.05em; }
+    .rating-row { display: flex; align-items: center; gap: 10px; margin-top: 0.5rem; }
+    .stars { color: #F5B84C; font-size: 1.1rem; letter-spacing: 2px; }
+    .rating-num { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--saffron); }
+    .rating-count { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--bg-alt); padding: 60px 5vw 30px; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
+    .footer-brand .logo-wordmark { font-size: 1.4rem; margin-bottom: 1rem; display: block; color: var(--text-primary); }
+    .footer-brand p { font-size: 0.86rem; color: var(--text-muted); line-height: 1.75; max-width: 280px; }
+    .footer-col h4 { font-family: 'Playfair Display', serif; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a { font-size: 0.84rem; color: var(--text-muted); text-decoration: none; transition: color .2s; }
+    .footer-col ul a:hover { color: var(--saffron); }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { font-size: 0.76rem; color: var(--text-muted); }
+    .footer-social { display: flex; gap: 12px; }
+    .social-btn { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: border-color .2s, color .2s, background .2s; }
+    .social-btn:hover { border-color: var(--saffron); color: var(--saffron); background: rgba(232,147,26,0.1); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .hero-badges { display: none; }
+      .exp-grid { grid-template-columns: repeat(2,1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 30px; }
+    }
+    @media (max-width: 900px) {
+      .nav-links, .theme-toggle, .lang-selector { display: none; }
+      .hamburger { display: flex; }
+      #about { grid-template-columns: 1fr; gap: 50px; }
+      .res-layout { grid-template-columns: 1fr; gap: 40px; }
+      .location-layout { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      section { padding: 80px 5vw; }
+      .exp-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 30px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+      .hero-stat { padding-right: 1.5rem; margin-right: 1.5rem; }
+      .about-img-grid { grid-template-columns: 1fr; }
+      .about-img-grid img { height: 180px; }
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 2.5rem; }
+      .exp-grid { grid-template-columns: 1fr; }
+      .hero-stats { flex-direction: column; gap: 0; }
+      .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem; margin-bottom: 0; }
+    }
+
+    /* Decorative dividers */
+    .mandala-divider { text-align: center; margin: -1rem auto 3rem; color: var(--saffron); font-size: 1.5rem; opacity: 0.5; }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav id="mainNav">
+  <a href="#hero" class="nav-logo">
+    <div class="logo-mark">CN</div>
+    <div class="logo-wordmark">Casa <span>Nepal</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about" id="navAbout">About</a></li>
+    <li><a href="#menu" id="navMenu">Menu</a></li>
+    <li><a href="#experience" id="navExperience">Experience</a></li>
+    <li><a href="#location" id="navFind">Find Us</a></li>
+    <li><a href="#reservation" class="nav-cta" id="navReserve">Reserve</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div class="lang-selector" id="langSelector">
+      <button class="lang-btn" id="langBtn">
+        <span id="currentFlag">🇬🇧</span>
+        <span id="currentLangCode">EN</span>
+        <span style="opacity:.5;font-size:.7rem;">▾</span>
+      </button>
+      <div class="lang-dropdown">
+        <div class="lang-option active" data-lang="en">🇬🇧 English</div>
+        <div class="lang-option" data-lang="es">🇪🇸 Español</div>
+        <div class="lang-option" data-lang="fr">🇫🇷 Français</div>
+      </div>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <div class="theme-toggle-knob" id="themeKnob">☀️</div>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about" id="mNavAbout">About</a>
+  <a href="#menu" id="mNavMenu">Menu</a>
+  <a href="#experience" id="mNavExp">Experience</a>
+  <a href="#location" id="mNavFind">Find Us</a>
+  <a href="#reservation" id="mNavReserve" style="color:var(--saffron)">Reserve a Table</a>
+  <div class="mobile-nav-bottom">
+    <div class="lang-selector" id="langSelectorM">
+      <button class="lang-btn" id="langBtnM">
+        <span id="currentFlagM">🇬🇧</span>
+        <span id="currentLangCodeM">EN</span>
+        <span style="opacity:.5;font-size:.7rem;">▾</span>
+      </button>
+      <div class="lang-dropdown">
+        <div class="lang-option active" data-lang-m="en">🇬🇧 English</div>
+        <div class="lang-option" data-lang-m="es">🇪🇸 Español</div>
+        <div class="lang-option" data-lang-m="fr">🇫🇷 Français</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=1800&q=85" alt="Nepali cuisine" />
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow" id="heroEyebrow">Torre del Mar · Málaga</div>
+    <h1 id="heroH1">Where the Himalayas<em>Meet the Sea</em></h1>
+    <p class="hero-sub" id="heroSub">Authentic Nepali & Indian cuisine — from fragrant curries and sizzling tandoor specialties to hand-crafted momo dumplings. Every dish tells a story of mountain spice and coastal warmth.</p>
+    <div class="hero-btns">
+      <a href="#reservation" class="btn-primary" id="heroBtnRes">Reserve a Table</a>
+      <a href="#menu" class="btn-outline" id="heroBtnMenu">View Menu</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="stat-num">4.9★</span>
+        <span class="stat-label" id="heroStatRating">Google Rating</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-num">343</span>
+        <span class="stat-label" id="heroStatReviews">Reviews</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-num"><a href="tel:951003267" style="color:inherit;text-decoration:none;">951 003 267</a></span>
+        <span class="stat-label" id="heroStatCall">Call Us</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-badges">
+    <div class="hero-badge"><div class="b-icon">🏔️</div><div class="b-text"><strong id="hb1t">Himalayan Spices</strong><span id="hb1s">Authentic recipes</span></div></div>
+    <div class="hero-badge"><div class="b-icon">🫕</div><div class="b-text"><strong id="hb2t">Tandoor Specials</strong><span id="hb2s">Wood-fired flavour</span></div></div>
+    <div class="hero-badge"><div class="b-icon">🥟</div><div class="b-text"><strong id="hb3t">Handmade Momo</strong><span id="hb3s">Nepali dumplings</span></div></div>
+    <div class="hero-badge"><div class="b-icon">🚗</div><div class="b-text"><strong id="hb4t">Takeaway</strong><span id="hb4s">Para Llevar</span></div></div>
+  </div>
+  <div class="scroll-ind">
+    <div class="scroll-line"></div>
+    <span id="scrollLabel">Scroll</span>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="about-visual reveal-left">
+    <div class="about-img-grid">
+      <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&q=80" alt="Indian curry" />
+      <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&q=80" alt="Tandoor" />
+      <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=600&q=80" alt="Momo dumplings" />
+      <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=600&q=80" alt="Spices" />
+    </div>
+    <div class="about-badge">
+      <strong>4.9 ★<br/>Google</strong>
+      <span>343 Reviews</span>
+    </div>
+  </div>
+  <div class="reveal-right">
+    <div class="section-tag" id="aboutTag">Our Story</div>
+    <h2 id="aboutH2">A Taste of <em>Nepal</em> in Málaga</h2>
+    <p class="section-lead" id="aboutLead">Casa Nepal brings the bold, aromatic flavours of the Himalayas to the sunny shores of Torre del Mar. From our family recipes passed down through generations to our carefully sourced spices, every dish is crafted with passion and authenticity.</p>
+    <div class="features-grid">
+      <div class="feature-card reveal delay-1">
+        <span class="feature-icon">🌶️</span>
+        <div class="feature-title" id="feat1T">Himalayan Spices</div>
+        <div class="feature-desc" id="feat1D">Hand-selected spices sourced directly from Nepal and India for authentic depth of flavour.</div>
+      </div>
+      <div class="feature-card reveal delay-2">
+        <span class="feature-icon">🍽️</span>
+        <div class="feature-title" id="feat2T">Dine-in & Takeaway</div>
+        <div class="feature-desc" id="feat2D">Enjoy our warm dining room or order your favourites to take home. Open 6 days a week.</div>
+      </div>
+      <div class="feature-card reveal delay-3">
+        <span class="feature-icon">👨‍🍳</span>
+        <div class="feature-title" id="feat3T">Chef's Specialities</div>
+        <div class="feature-desc" id="feat3D">Unique signature dishes like Poleko Haas and Sherpa Pork Curry you won't find elsewhere.</div>
+      </div>
+      <div class="feature-card reveal delay-4">
+        <span class="feature-icon">🌿</span>
+        <div class="feature-title" id="feat4T">Vegetarian Options</div>
+        <div class="feature-desc" id="feat4D">An extensive vegetarian menu with rich curries, paneer dishes and fresh salads.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SHOWCASE ── -->
+<section id="showcase" style="padding-bottom:0;">
+  <div class="showcase-header reveal">
+    <div class="section-tag" id="showcaseTag">Signature Dishes</div>
+    <h2 id="showcaseH2">Taste the <em>Difference</em></h2>
+    <p class="section-lead" id="showcaseDesc">From the clay walls of our tandoor to your table — dishes crafted with fire, spice and soul.</p>
+  </div>
+  <div style="overflow:hidden;">
+    <div class="showcase-strip">
+      <div class="showcase-item"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=75" alt="Curry"/><div class="showcase-label"><span>House Special</span><strong>Butter Chicken</strong><em>Creamy & aromatic</em></div></div>
+      <div class="showcase-item"><img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=400&q=75" alt="Biryani"/><div class="showcase-label"><span>Aromatic Basmati</span><strong>Special Biryani</strong><em>Prawn, chicken & lamb</em></div></div>
+      <div class="showcase-item"><img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=400&q=75" alt="Momo"/><div class="showcase-label"><span>Nepali Classic</span><strong>Mo:Mo</strong><em>Steam or chilli</em></div></div>
+      <div class="showcase-item"><img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=400&q=75" alt="Tandoori"/><div class="showcase-label"><span>From the Tandoor</span><strong>Tandoori Chicken</strong><em>Marinated & grilled</em></div></div>
+      <div class="showcase-item"><img src="https://images.unsplash.com/photo-1644391053163-8e8893b0dc3c?w=400&q=75" alt="Curry"/><div class="showcase-label"><span>Chef's Pick</span><strong>Lamb Karahi</strong><em>Himalayan spice blend</em></div></div>
+      <div class="showcase-item"><img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=400&q=75" alt="Naan"/><div class="showcase-label"><span>Baked Fresh</span><strong>Garlic Naan</strong><em>Straight from the oven</em></div></div>
+      <!-- duplicate for seamless loop -->
+      <div class="showcase-item"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=75" alt="Curry"/><div class="showcase-label"><span>House Special</span><strong>Butter Chicken</strong><em>Creamy & aromatic</em></div></div>
+      <div class="showcase-item"><img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=400&q=75" alt="Biryani"/><div class="showcase-label"><span>Aromatic Basmati</span><strong>Special Biryani</strong><em>Prawn, chicken & lamb</em></div></div>
+      <div class="showcase-item"><img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=400&q=75" alt="Momo"/><div class="showcase-label"><span>Nepali Classic</span><strong>Mo:Mo</strong><em>Steam or chilli</em></div></div>
+      <div class="showcase-item"><img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=400&q=75" alt="Tandoori"/><div class="showcase-label"><span>From the Tandoor</span><strong>Tandoori Chicken</strong><em>Marinated & grilled</em></div></div>
+      <div class="showcase-item"><img src="https://images.unsplash.com/photo-1644391053163-8e8893b0dc3c?w=400&q=75" alt="Curry"/><div class="showcase-label"><span>Chef's Pick</span><strong>Lamb Karahi</strong><em>Himalayan spice blend</em></div></div>
+      <div class="showcase-item"><img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=400&q=75" alt="Naan"/><div class="showcase-label"><span>Baked Fresh</span><strong>Garlic Naan</strong><em>Straight from the oven</em></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MENU ── -->
+<section id="menu">
+  <div class="reveal">
+    <div class="section-tag" id="menuTag">Our Menu</div>
+    <h2 id="menuH2">What We <em>Serve</em></h2>
+    <p class="section-lead" id="menuLead">From light starters to hearty mains — available for dine-in and takeaway. All prices include VAT.</p>
+  </div>
+  <div class="menu-tabs reveal">
+    <button class="menu-tab active" data-target="tab-starters" id="tabStarters">Starters</button>
+    <button class="menu-tab" data-target="tab-chefspec" id="tabChef">Chef's Specials</button>
+    <button class="menu-tab" data-target="tab-tandoori" id="tabTandoori">Tandoori</button>
+    <button class="menu-tab" data-target="tab-tikka" id="tabTikka">Tikka Masala</button>
+    <button class="menu-tab" data-target="tab-korma" id="tabKorma">Korma</button>
+    <button class="menu-tab" data-target="tab-jalfrezi" id="tabJalfrezi">Jalfrezi</button>
+    <button class="menu-tab" data-target="tab-karahi" id="tabKarahi">Karahi</button>
+    <button class="menu-tab" data-target="tab-madvindaloo" id="tabMadVin">Madras & Vindaloo</button>
+    <button class="menu-tab" data-target="tab-dhansak" id="tabDhansak">Dhansak</button>
+    <button class="menu-tab" data-target="tab-veg" id="tabVeg">Vegetarian</button>
+    <button class="menu-tab" data-target="tab-biryani" id="tabBiryani">Biryani</button>
+    <button class="menu-tab" data-target="tab-rice" id="tabRice">Rice & Bread</button>
+    <button class="menu-tab" data-target="tab-kids" id="tabKids">Kids Menu</button>
+  </div>
+
+  <!-- STARTERS -->
+  <div class="menu-section active" id="tab-starters">
+    <div class="menu-cat-title">Entrantes / Starters</div>
+    <div class="menu-grid">
+      <div class="menu-item"><div><div class="menu-item-name">01. Papadam</div><div class="menu-item-desc">Tortillitas de Garbanzo / Chickpea crackers</div></div><div class="menu-item-price">1,00€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">02. Mix Starter</div><div class="menu-item-desc">Onion bhaji, chicken pakoda, chicken empanadilla & lamb tikka</div></div><div class="menu-item-price">6,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">03. Chicken Chiola <span class="spicy">🌶🌶</span></div><div class="menu-item-desc">Roast chicken marinated with garlic & ginger</div></div><div class="menu-item-price">6,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">04. Onion Bhaji</div><div class="menu-item-desc">Cebolla rebozado en harina de garbanzo</div></div><div class="menu-item-price">5,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">05. Prawn Puri</div><div class="menu-item-desc">Pan frito acompañado con gambas y salsa</div></div><div class="menu-item-price">6,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">06. Chicken Pakora</div><div class="menu-item-desc">Pollo rebozado en harina de garbanzo</div></div><div class="menu-item-price">4,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">07. Veg Samosa</div><div class="menu-item-desc">Pasteles fritos con ajo, patatas, jengibre condimentadas</div></div><div class="menu-item-price">5,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">08. Garlic or Chilli Mushrooms</div><div class="menu-item-desc">Champiñones al ajillo o chille</div></div><div class="menu-item-price">4,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">09. Chicken Tikka Starters</div><div class="menu-item-desc">Pollo Tikka — marinated & oven baked</div></div><div class="menu-item-price">5,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">10. Mo:Mo (Steam or Chilli) <span class="spicy">🌶</span></div><div class="menu-item-desc">Empanadilla redondas carne, vapor o chilli</div></div><div class="menu-item-price">7,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">11. Brinjal Pakora</div><div class="menu-item-desc">Verduras temporadas rebozado en harina con especias</div></div><div class="menu-item-price">4,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">12. Chicken Soup</div><div class="menu-item-desc">Sopa de pollo con nepali especias</div></div><div class="menu-item-price">5,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">13. Green Salad with Chicken</div><div class="menu-item-desc">Ensalada verde con pollo</div></div><div class="menu-item-price">6,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">14. Raita / Gazpacho Nepali</div><div class="menu-item-desc">Yogur, pimientos, cebolla y cucumber especias himalaya</div></div><div class="menu-item-price">3,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">15. Garlic Chilly Paneer / Prawn</div><div class="menu-item-desc">Queso casero / langostinos al ajillo o chilly</div></div><div class="menu-item-price">8,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">16. Sadeko Pork <span class="spicy">🌶🌶</span></div><div class="menu-item-desc">Grilled pork with capsicum & onion — cerdo parrillada (full 7,50€ / half 4,50€)</div></div><div class="menu-item-price">7,50€</div></div>
+    </div>
+  </div>
+
+  <!-- CHEF'S SPECIALS -->
+  <div class="menu-section" id="tab-chefspec">
+    <div class="menu-cat-title">Especialidades de Casa / Chef</div>
+    <div class="menu-grid">
+      <div class="menu-item"><div><div class="menu-item-name">17. Sherpa Pork Curry <span class="spicy">🌶🌶</span></div><div class="menu-item-desc">Cerdo marinado con jengibre, yogur, especias himalaya y salsa de tomate</div></div><div class="menu-item-price">12,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">18. Sherpa Lamb Shanks with Mushroom <span class="spicy">🌶🌶</span></div><div class="menu-item-desc">Garrón de cordero con champiñones — Nepali especias con salsa yogur y cebolla</div></div><div class="menu-item-price">13,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">19. Goan Chicken or Lamb Curry</div><div class="menu-item-desc">Especias himalaya cocinado con nata fresca y semillas de mostaza</div></div><div class="menu-item-price">12,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">20. Chicken Mango</div><div class="menu-item-desc">Pollo Mango — delicate mango & spice sauce</div></div><div class="menu-item-price">12,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">21. Chicken or Lamb Lababdar</div><div class="menu-item-desc">Plato tradicional nepali cocinado con especias, queso y yogur</div></div><div class="menu-item-price">12,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">22. Chicken Saag</div><div class="menu-item-desc">Pollo con espinacas — chicken with spinach</div></div><div class="menu-item-price">11,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">23. Butter Chicken</div><div class="menu-item-desc">Pollo con mantequilla — rich tomato & butter cream sauce</div></div><div class="menu-item-price">12,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">24. Poleko Haas ★</div><div class="menu-item-desc">Duck thigh with Goan sauce or choice of sauce — muslo de pato</div></div><div class="menu-item-price">14,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">25. Goan Fish Curry</div><div class="menu-item-desc">Especias himalaya con nata y semillas de mostaza o elegir salsa</div></div><div class="menu-item-price">14,50€</div></div>
+    </div>
+  </div>
+
+  <!-- TANDOORI -->
+  <div class="menu-section" id="tab-tandoori">
+    <div class="menu-cat-title">Especialidades Tanduri / A La Brasa</div>
+    <div class="menu-grid">
+      <div class="menu-item"><div><div class="menu-item-name">26. Chiken Sekuwa <span class="spicy">🌶🌶</span></div><div class="menu-item-desc">Pollo marinado con especias himalaya</div></div><div class="menu-item-price">12,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">27. Tanduri Chicken</div><div class="menu-item-desc">Muslo de pollo asado con cebolla, pimienta y agridulce</div></div><div class="menu-item-price">12,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">28. Lumbini Chicken / Mint Chicken</div><div class="menu-item-desc">Pollo marinado con yogur, cebolla y salsa menta fresca</div></div><div class="menu-item-price">12,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">29. Chicken Saslik</div><div class="menu-item-desc">Pollo asado salteado con cebolla, pimientos en agridulce</div></div><div class="menu-item-price">13,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">30. Tanduri Garlic King Prawn</div><div class="menu-item-desc">Barbacoa langostino marinado en especias</div></div><div class="menu-item-price">15,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">31. Salmon Tikka with Vegetable</div><div class="menu-item-desc">Filete de salmón marinado en salsa homeado en tandoor</div></div><div class="menu-item-price">15,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">32. Mix Grill</div><div class="menu-item-desc">Parrillada mixta de carnes, langostino marinado en especias himalaya</div></div><div class="menu-item-price">15,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">33. Chesey Chicken Tikka Sizler</div><div class="menu-item-desc">Pollo al horno con especias y queso</div></div><div class="menu-item-price">12,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">34. Janeko Momo with Cheese</div><div class="menu-item-desc">Empanadillas de pollo con salsa agridulce, cebolla y pimiento verde</div></div><div class="menu-item-price">12,50€</div></div>
+    </div>
+  </div>
+
+  <!-- TIKKA MASALA -->
+  <div class="menu-section" id="tab-tikka">
+    <div class="menu-cat-title">Tikka Masala</div>
+    <p class="menu-cat-note">Fusion de salsa cremoso de pasta de almendras y salsa de tomate y cebolla</p>
+    <div class="menu-grid">
+      <div class="menu-item"><div><div class="menu-item-name">35. Chicken Tikka Masala</div><div class="menu-item-desc">Chicken in almond cream & tomato masala</div></div><div class="menu-item-price">10,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">36. Lamb Tikka Masala</div><div class="menu-item-desc">Lamb in almond cream & tomato masala</div></div><div class="menu-item-price">11,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">37. King Prawn Masala</div><div class="menu-item-desc">King prawns in almond cream & tomato masala</div></div><div class="menu-item-price">13,50€</div></div>
+    </div>
+  </div>
+
+  <!-- KORMA -->
+  <div class="menu-section" id="tab-korma">
+    <div class="menu-cat-title">Korma Dish</div>
+    <p class="menu-cat-note">Plato cocinado en una salsa cremosa, coco y especias</p>
+    <div class="menu-grid">
+      <div class="menu-item"><div><div class="menu-item-name">38. Chicken Korma</div><div class="menu-item-desc">Chicken in creamy coconut sauce</div></div><div class="menu-item-price">10,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">39. Lamb Korma</div><div class="menu-item-desc">Lamb in creamy coconut sauce</div></div><div class="menu-item-price">11,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">40. King Prawn Korma</div><div class="menu-item-desc">King prawns in creamy coconut sauce</div></div><div class="menu-item-price">13,95€</div></div>
+    </div>
+  </div>
+
+  <!-- JALFREZI -->
+  <div class="menu-section" id="tab-jalfrezi">
+    <div class="menu-cat-title">Jalfrezi Dish <span class="spicy">🌶🌶</span></div>
+    <p class="menu-cat-note">Con ajo, jengibre, cebolla y pimientos en salsa medio picante tradicional</p>
+    <div class="menu-grid">
+      <div class="menu-item"><div><div class="menu-item-name">41. Chicken Jalfrezi</div><div class="menu-item-desc">Chicken with garlic, ginger, onion & peppers</div></div><div class="menu-item-price">10,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">42. Lamb Jalfrezi</div><div class="menu-item-desc">Lamb with garlic, ginger, onion & peppers</div></div><div class="menu-item-price">11,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">43. King Prawn Jalfrezi</div><div class="menu-item-desc">King prawns with garlic, ginger, onion & peppers</div></div><div class="menu-item-price">13,95€</div></div>
+    </div>
+  </div>
+
+  <!-- KARAHI -->
+  <div class="menu-section" id="tab-karahi">
+    <div class="menu-cat-title">Karahi Dish <span class="spicy">🌶🌶</span></div>
+    <p class="menu-cat-note">Plato típico de Himalaya preparado con tomate, cebolla, pimientos y salsa himalaya</p>
+    <div class="menu-grid">
+      <div class="menu-item"><div><div class="menu-item-name">44. Chicken Karahi</div><div class="menu-item-desc">Chicken Himalayan karahi style</div></div><div class="menu-item-price">10,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">45. Lamb Karahi</div><div class="menu-item-desc">Lamb Himalayan karahi style</div></div><div class="menu-item-price">11,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">46. King Prawn Karahi</div><div class="menu-item-desc">King prawns Himalayan karahi style</div></div><div class="menu-item-price">13,95€</div></div>
+    </div>
+  </div>
+
+  <!-- MADRAS + VINDALOO -->
+  <div class="menu-section" id="tab-madvindaloo">
+    <div class="menu-cat-title">Madras Dish <span class="spicy">🌶🌶</span></div>
+    <p class="menu-cat-note">Salsa rica tomate, cebolla, jengibre y exquisita salsa medio picante</p>
+    <div class="menu-grid">
+      <div class="menu-item"><div><div class="menu-item-name">47. Chicken Madras</div><div class="menu-item-desc">Chicken in medium-hot tomato & spice sauce</div></div><div class="menu-item-price">10,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">48. Lamb Madras</div><div class="menu-item-desc">Lamb in medium-hot tomato & spice sauce</div></div><div class="menu-item-price">11,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">49. King Prawn Madras</div><div class="menu-item-desc">Prawns in medium-hot tomato & spice sauce</div></div><div class="menu-item-price">13,95€</div></div>
+    </div>
+    <div class="menu-cat-title" style="margin-top:2.5rem;">Vindaloo Dish <span class="spicy">🌶🌶🌶</span></div>
+    <p class="menu-cat-note">Pasta de ajo y jengibre en una salsa de cebolla, tomate y especias con patata</p>
+    <div class="menu-grid">
+      <div class="menu-item"><div><div class="menu-item-name">50. Chicken Vindaloo</div><div class="menu-item-desc">Fiery chicken with potato</div></div><div class="menu-item-price">10,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">51. Lamb Vindaloo</div><div class="menu-item-desc">Fiery lamb with potato</div></div><div class="menu-item-price">11,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">52. King Prawn Vindaloo</div><div class="menu-item-desc">Fiery prawns with potato</div></div><div class="menu-item-price">13,95€</div></div>
+    </div>
+  </div>
+
+  <!-- DHANSAK -->
+  <div class="menu-section" id="tab-dhansak">
+    <div class="menu-cat-title">Especialidades Dhansak <span class="spicy">🌶</span></div>
+    <p class="menu-cat-note">Salsa con lentejas, cebolla, tomate y especias himalaya</p>
+    <div class="menu-grid">
+      <div class="menu-item"><div><div class="menu-item-name">53. Chicken Dhansak</div><div class="menu-item-desc">Chicken with lentils, tomato & Himalayan spices</div></div><div class="menu-item-price">10,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">54. Lamb Dhansak</div><div class="menu-item-desc">Lamb with lentils, tomato & Himalayan spices</div></div><div class="menu-item-price">11,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">55. King Prawn Dhansak</div><div class="menu-item-desc">King prawns with lentils, tomato & Himalayan spices</div></div><div class="menu-item-price">13,95€</div></div>
+    </div>
+  </div>
+
+  <!-- VEG -->
+  <div class="menu-section" id="tab-veg">
+    <div class="menu-cat-title">Veg. Dish / Platos de Verduras 🌿</div>
+    <div class="menu-grid">
+      <div class="menu-item"><div><div class="menu-item-name">56. Mix Veg Curry</div><div class="menu-item-desc">Verdura al curry con especias</div></div><div class="menu-item-price">8,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">57. Tadka Dal</div><div class="menu-item-desc">Lentejas con salsa de tomate, cebolla y especias</div></div><div class="menu-item-price">8,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">58. Saag Bhaji</div><div class="menu-item-desc">Espinacas cocinadas con cebolla, tomate y especias</div></div><div class="menu-item-price">8,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">59. Chana Masala</div><div class="menu-item-desc">Garbanzo cocinado con tomate y hierbas</div></div><div class="menu-item-price">8,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">60. Mushroom Bhaji</div><div class="menu-item-desc">Champiñones con hierbas</div></div><div class="menu-item-price">9,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">61. Palak Paneer</div><div class="menu-item-desc">Queso casero con espinaca, tomate y cebolla</div></div><div class="menu-item-price">9,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">62. Saag Aloo</div><div class="menu-item-desc">Espinacas picadas con patatas</div></div><div class="menu-item-price">7,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">63. Mutter Paneer</div><div class="menu-item-desc">Guisantes con queso cocido y especias</div></div><div class="menu-item-price">9,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">64. Bombay Aloo</div><div class="menu-item-desc">Patata cocida con tomate y cebolla en salsa gruesa</div></div><div class="menu-item-price">6,50€</div></div>
+    </div>
+  </div>
+
+  <!-- BIRYANI -->
+  <div class="menu-section" id="tab-biryani">
+    <div class="menu-cat-title">Briyani Dish 🍚</div>
+    <p class="menu-cat-note">Nepali tradicional — arroz frito con especias servido con salsa curry</p>
+    <div class="menu-grid">
+      <div class="menu-item"><div><div class="menu-item-name">65. Sherpa Special Briyani</div><div class="menu-item-desc">Prawn, chicken & lamb / Gamba, pollo y cordero</div></div><div class="menu-item-price">14,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">66. Chicken Briyani</div><div class="menu-item-desc">Pollo Briyani — chicken spiced rice</div></div><div class="menu-item-price">12,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">67. Lamb Briyani</div><div class="menu-item-desc">Cordero Briyani — lamb spiced rice</div></div><div class="menu-item-price">13,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">68. Prawn Briyani</div><div class="menu-item-desc">Gamba Briyani — prawn spiced rice</div></div><div class="menu-item-price">14,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">69. Veg Briyani</div><div class="menu-item-desc">Verdura Briyani — vegetable spiced rice</div></div><div class="menu-item-price">10,95€</div></div>
+    </div>
+  </div>
+
+  <!-- RICE & BREAD -->
+  <div class="menu-section" id="tab-rice">
+    <div class="menu-cat-title">Rice / Arroce</div>
+    <div class="menu-grid">
+      <div class="menu-item"><div><div class="menu-item-name">70. Special Rice</div><div class="menu-item-desc">Arroz especial — fried rice with egg & vegetables</div></div><div class="menu-item-price">5,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">71. Lemon Rice</div><div class="menu-item-desc">Arroz con limón</div></div><div class="menu-item-price">4,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">72. Coco Rice</div><div class="menu-item-desc">Arroz con coco</div></div><div class="menu-item-price">5,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">73. Mushroom Rice</div><div class="menu-item-desc">Arroz con champiñones</div></div><div class="menu-item-price">4,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">74. Pilau Rice</div><div class="menu-item-desc">Arroz con azafrán</div></div><div class="menu-item-price">3,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">75. Basmati Rice</div><div class="menu-item-desc">Arroz Basmati — plain steamed</div></div><div class="menu-item-price">2,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">76. Kima Rice</div><div class="menu-item-desc">Arroz con carne picada</div></div><div class="menu-item-price">4,50€</div></div>
+    </div>
+    <div class="menu-cat-title">Naan / Pan</div>
+    <div class="menu-grid">
+      <div class="menu-item"><div><div class="menu-item-name">77. Plain Naan</div><div class="menu-item-desc">Naan normal</div></div><div class="menu-item-price">3,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">78. Garlic Naan</div><div class="menu-item-desc">Naan de ajo</div></div><div class="menu-item-price">4,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">79. Cheese Naan</div><div class="menu-item-desc">Naan de queso</div></div><div class="menu-item-price">5,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">80. Cheese & Garlic Naan</div><div class="menu-item-desc">Naan de queso y ajo</div></div><div class="menu-item-price">5,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">81. Butter Naan</div><div class="menu-item-desc">Naan de mantequilla</div></div><div class="menu-item-price">4,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">82. Pesheari Naan</div><div class="menu-item-desc">Naan de coco</div></div><div class="menu-item-price">5,95€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">83. Chapati</div><div class="menu-item-desc">Pan integral / Wholemeal bread</div></div><div class="menu-item-price">1,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">84. Chips</div><div class="menu-item-desc">Patatas fritas</div></div><div class="menu-item-price">2,50€</div></div>
+    </div>
+  </div>
+
+  <!-- KIDS -->
+  <div class="menu-section" id="tab-kids">
+    <div class="menu-cat-title">Kids Menu / Menú Infantil 👦 (Under 14 / Menores 14 años)</div>
+    <div class="menu-grid">
+      <div class="menu-item"><div><div class="menu-item-name">85. Chicken Tikka Masala with Rice</div><div class="menu-item-desc">Pollo tikka masala con arroz</div></div><div class="menu-item-price">7,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">86. Chicken Korma with Rice</div><div class="menu-item-desc">Pollo korma con arroz</div></div><div class="menu-item-price">7,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">87. Chicken Tikka Masala with Chips</div><div class="menu-item-desc">Pollo tikka masala con patatas fritas</div></div><div class="menu-item-price">7,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">88. Chicken Korma with Chips</div><div class="menu-item-desc">Pollo korma con patatas fritas</div></div><div class="menu-item-price">7,50€</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">89. Chicken Pakoda with Chips</div><div class="menu-item-desc">Pollo pakoda, nuggets de pollo con patatas fritas</div></div><div class="menu-item-price">7,50€</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section id="experience">
+  <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 4rem;">
+    <div class="section-tag" style="justify-content:center;" id="expTag">The Experience</div>
+    <h2 id="expH2">More than a <em>Meal</em></h2>
+    <p class="section-lead" style="margin:0 auto;" id="expLead">We take care of every detail so you can relax and enjoy the journey from the Himalayas to your plate.</p>
+  </div>
+  <div class="exp-grid">
+    <div class="exp-card reveal delay-1">
+      <span class="exp-icon">🏔️</span>
+      <h3 id="exp1T">Authentic Recipes</h3>
+      <p id="exp1D">Traditional Nepali and Indian recipes, passed down through generations and brought to life with care.</p>
+    </div>
+    <div class="exp-card reveal delay-2">
+      <span class="exp-icon">🌊</span>
+      <h3 id="exp2T">Sea Views</h3>
+      <p id="exp2D">Located on the Paseo Marítimo Levante, enjoy stunning Mediterranean views while dining.</p>
+    </div>
+    <div class="exp-card reveal delay-3">
+      <span class="exp-icon">🚗</span>
+      <h3 id="exp3T">Easy Takeaway</h3>
+      <p id="exp3D">Order by phone for quick & delicious takeaway. We'll have it ready when you arrive.</p>
+    </div>
+    <div class="exp-card reveal delay-4">
+      <span class="exp-icon">⭐</span>
+      <h3 id="exp4T">4.9 on Google</h3>
+      <p id="exp4D">Over 343 five-star reviews from happy guests. Come and discover why they keep coming back.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESERVATION ── -->
+<section id="reservation">
+  <div class="reveal" style="margin-bottom:3rem;">
+    <div class="section-tag" id="resTag">Book a Table</div>
+    <h2 id="resH2">Make a <em>Reservation</em></h2>
+    <p class="section-lead" id="resLead">Reserve your table online or give us a call. We look forward to welcoming you.</p>
+  </div>
+  <div class="res-layout">
+    <div class="res-info reveal-left">
+      <div class="res-info-card">
+        <div class="res-info-icon">📞</div>
+        <div>
+          <h4 id="resCallTitle">Call or WhatsApp</h4>
+          <p><a href="tel:951003267">951 003 267</a></p>
+          <p id="resCallDesc">We're happy to take bookings by phone or WhatsApp.</p>
+        </div>
+      </div>
+      <div class="res-info-card">
+        <div class="res-info-icon">📍</div>
+        <div>
+          <h4 id="resAddrTitle">Address</h4>
+          <p>Paseó Marítimo Levante 21<br/>Torre del Mar, 29740 Málaga</p>
+        </div>
+      </div>
+      <div class="res-info-card">
+        <div class="res-info-icon">🕐</div>
+        <div>
+          <h4 id="resHoursTitle">Opening Hours</h4>
+          <p id="resHours">Mon: Closed &nbsp;|&nbsp; Tue–Sun: 12:00–16:00 &amp; 18:00–00:00</p>
+        </div>
+      </div>
+      <div class="res-info-card">
+        <div class="res-info-icon">⭐</div>
+        <div>
+          <h4>Google Rating</h4>
+          <div class="rating-row">
+            <div class="rating-num">4.9</div>
+            <div class="stars">★★★★★</div>
+            <div class="rating-count">343 reviews</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="res-form reveal-right">
+      <form id="resForm" action="https://script.google.com/macros/s/YOUR_GOOGLE_SCRIPT_ID/exec" method="POST" onsubmit="handleResSubmit(event)">
+        <h3 id="resFormTitle">Reserve Your Table</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName" id="labelFirst">First Name</label>
+            <input type="text" id="firstName" name="first_name" required />
+          </div>
+          <div class="form-group">
+            <label for="lastName" id="labelLast">Last Name</label>
+            <input type="text" id="lastName" name="last_name" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="resEmail" id="labelEmail">Email</label>
+            <input type="email" id="resEmail" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="resPhone" id="labelPhone">Phone</label>
+            <input type="tel" id="resPhone" name="phone" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="resDate" id="labelDate">Date</label>
+            <input type="date" id="resDate" name="date" required />
+          </div>
+          <div class="form-group">
+            <label for="resTime" id="labelTime">Time</label>
+            <select id="resTime" name="time" required>
+              <option value="" id="selectTimePlaceholder">Select time…</option>
+              <option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option>
+              <option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option>
+              <option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option>
+              <option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option>
+              <option>22:00</option><option>22:30</option><option>23:00</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="resGuests" id="labelGuests">Number of Guests</label>
+          <select id="resGuests" name="guests" required>
+            <option value="" id="selectGuestsPlaceholder">Select guests…</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option>
+            <option>5</option><option>6</option><option>7</option><option>8+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="resSpecial" id="labelSpecial">Special Requests</label>
+          <textarea id="resSpecial" name="special_requests" placeholder="Allergies, celebrations, dietary requirements…"></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="resSubmitBtn">Confirm Reservation</button>
+        <p class="form-note" id="resNote">🙏 We'll confirm by phone or WhatsApp within a few hours.</p>
+      </form>
+      <div class="success-msg" id="successMsg">
+        <span class="success-icon">🙏</span>
+        <h3 id="successTitle">Namaste! Thank You</h3>
+        <p id="successDesc">Your reservation request has been received. We'll confirm shortly by phone or WhatsApp. We look forward to welcoming you to Casa Nepal!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LOCATION ── -->
+<section id="location">
+  <div class="reveal" style="margin-bottom:3rem;">
+    <div class="section-tag" id="locTag">Find Us</div>
+    <h2 id="locH2">We Are in <em>Torre del Mar</em></h2>
+    <p class="section-lead" id="locLead">Located on the beautiful Paseo Marítimo Levante 21, Torre del Mar — easy to find with parking nearby.</p>
+  </div>
+  <div class="location-layout">
+    <div class="location-map reveal-left">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3199.017!2d-4.0908!3d36.7284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72f5f7f7f7f7f7%3A0x0!2sPaseo+Mar%C3%ADtimo+Levante+21%2C+Torre+del+Mar!5e0!3m2!1sen!2ses!4v1680000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Casa Nepal location"></iframe>
+    </div>
+    <div class="location-details reveal-right">
+      <div class="location-detail">
+        <div class="loc-icon">📍</div>
+        <div>
+          <div class="loc-label" id="locAddrLabel">Address</div>
+          <div class="loc-value">Paseó Marítimo Levante 21<br/>Torre del Mar, 29740 Málaga</div>
+        </div>
+      </div>
+      <div class="location-detail">
+        <div class="loc-icon">📞</div>
+        <div>
+          <div class="loc-label" id="locPhoneLabel">Telephone</div>
+          <div class="loc-value"><a href="tel:951003267" style="color:var(--saffron);text-decoration:none;font-weight:600;">951 003 267</a></div>
+        </div>
+      </div>
+      <div class="location-detail">
+        <div class="loc-icon">🕐</div>
+        <div>
+          <div class="loc-label" id="locHoursLabel">Opening Hours</div>
+          <div class="loc-value" id="locHoursVal">Tuesday – Sunday: 12:00–16:00 & 18:00–00:00<br/><strong style="color:var(--crimson);">Monday: Closed</strong></div>
+        </div>
+      </div>
+      <div class="location-detail">
+        <div class="loc-icon">⭐</div>
+        <div>
+          <div class="loc-label">Google Rating</div>
+          <div class="rating-row">
+            <div class="rating-num">4.9</div>
+            <div class="stars">★★★★★</div>
+            <div class="rating-count">343 reviews</div>
+          </div>
+        </div>
+      </div>
+      <div class="location-btns">
+        <a href="#reservation" class="btn-primary btn-sm" id="locBtnBook">Book a Table</a>
+        <a href="https://maps.google.com/?q=Paseo+Maritimo+Levante+21+Torre+del+Mar" target="_blank" rel="noopener" class="btn-outline btn-sm" id="locBtnMaps">Open in Maps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="logo-wordmark">Casa <span style="color:var(--saffron)">Nepal</span></span>
+      <p id="footerAbout">Authentic Nepali & Indian cuisine on the beautiful Paseo Marítimo Levante, Torre del Mar. Where Himalayan tradition meets Mediterranean warmth — one dish at a time.</p>
+    </div>
+    <div class="footer-col">
+      <h4 id="footerNavTitle">Navigate</h4>
+      <ul>
+        <li><a href="#about" id="footerAboutLink">About Us</a></li>
+        <li><a href="#menu" id="footerMenuLink">Menu</a></li>
+        <li><a href="#experience" id="footerExpLink">Experience</a></li>
+        <li><a href="#reservation" id="footerResLink">Reservations</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 id="footerMenuTitle">Menu</h4>
+      <ul>
+        <li><a href="#menu" onclick="setTab('tab-starters')">Starters</a></li>
+        <li><a href="#menu" onclick="setTab('tab-chefspec')">Chef's Specials</a></li>
+        <li><a href="#menu" onclick="setTab('tab-tandoori')">Tandoori</a></li>
+        <li><a href="#menu" onclick="setTab('tab-biryani')">Biryani</a></li>
+        <li><a href="#menu" onclick="setTab('tab-veg')">Vegetarian</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 id="footerContactTitle">Contact</h4>
+      <ul>
+        <li><a href="tel:951003267">951 003 267</a></li>
+        <li><a href="https://wa.me/34951003267" target="_blank">WhatsApp</a></li>
+        <li><a href="https://maps.google.com/?q=Paseo+Maritimo+Levante+21+Torre+del+Mar" target="_blank">Google Maps</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p id="footerCopy">© 2025 Casa Nepal · Torre del Mar, Málaga. All rights reserved.</p>
+    <div class="footer-social">
+      <a href="#" class="social-btn" aria-label="Facebook">f</a>
+      <a href="#" class="social-btn" aria-label="Instagram">📷</a>
+      <a href="https://wa.me/34951003267" class="social-btn" aria-label="WhatsApp">💬</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/34951003267" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <div class="whatsapp-label">
+    <strong id="waLabel">Chat with us</strong>
+    <span id="waSub">via WhatsApp</span>
+  </div>
+</a>
+
+<script>
+  // ── NAV SCROLL ──
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+
+  // ── THEME TOGGLE ──
+  const themeToggle = document.getElementById('themeToggle');
+  const themeKnob = document.getElementById('themeKnob');
+  let currentTheme = localStorage.getItem('cn-theme') || 'dark';
+  document.documentElement.dataset.theme = currentTheme;
+  themeKnob.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+  themeToggle.addEventListener('click', () => {
+    currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = currentTheme;
+    themeKnob.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+    localStorage.setItem('cn-theme', currentTheme);
+  });
+
+  // ── HAMBURGER ──
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+  }));
+
+  // ── MENU TABS ──
+  function setTab(targetId) {
+    document.querySelectorAll('.menu-tab').forEach(t => {
+      t.classList.toggle('active', t.dataset.target === targetId);
+    });
+    document.querySelectorAll('.menu-section').forEach(s => {
+      s.classList.toggle('active', s.id === targetId);
+    });
+  }
+  document.querySelectorAll('.menu-tab').forEach(tab => {
+    tab.addEventListener('click', () => setTab(tab.dataset.target));
+  });
+
+  // ── REVEAL ON SCROLL ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+  // ── RESERVATION FORM ──
+  function handleResSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('resForm');
+    const btn = form.querySelector('.form-submit');
+    const orig = btn.textContent;
+    btn.textContent = '⏳ Sending…';
+    btn.disabled = true;
+    const fd = new FormData(form);
+    const params = new URLSearchParams();
+    fd.forEach((v, k) => params.append(k, v));
+    fetch(form.action, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: params.toString() })
+      .then(() => {
+        form.style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+      })
+      .catch(() => {
+        btn.textContent = orig;
+        btn.disabled = false;
+        alert('Problem sending. Please call or WhatsApp: 951 003 267');
+      });
+  }
+
+  // ── LANGUAGE SYSTEM ──
+  const translations = {
+    en: {
+      flag: '🇬🇧', code: 'EN',
+      navAbout: 'About', navMenu: 'Menu', navExperience: 'Experience', navFind: 'Find Us', navReserve: 'Reserve',
+      heroEyebrow: 'Torre del Mar · Málaga',
+      heroH1: 'Where the Himalayas<em> Meet the Sea</em>',
+      heroSub: 'Authentic Nepali & Indian cuisine — from fragrant curries and sizzling tandoor specialties to hand-crafted momo dumplings. Every dish tells a story of mountain spice and coastal warmth.',
+      heroBtnRes: 'Reserve a Table', heroBtnMenu: 'View Menu',
+      heroStatRating: 'Google Rating', heroStatReviews: 'Reviews', heroStatCall: 'Call Us',
+      hb1t:'Himalayan Spices', hb1s:'Authentic recipes', hb2t:'Tandoor Specials', hb2s:'Wood-fired flavour', hb3t:'Handmade Momo', hb3s:'Nepali dumplings', hb4t:'Takeaway', hb4s:'Para Llevar',
+      scrollLabel: 'Scroll',
+      aboutTag: 'Our Story', aboutH2: 'A Taste of <em>Nepal</em> in Málaga',
+      aboutLead: 'Casa Nepal brings the bold, aromatic flavours of the Himalayas to the sunny shores of Torre del Mar. From family recipes passed down through generations to carefully sourced spices, every dish is crafted with passion and authenticity.',
+      feat1T:'Himalayan Spices', feat1D:'Hand-selected spices sourced directly from Nepal and India for authentic depth of flavour.',
+      feat2T:'Dine-in & Takeaway', feat2D:'Enjoy our warm dining room or order your favourites to take home. Open 6 days a week.',
+      feat3T:"Chef's Specialities", feat3D:'Unique dishes like Poleko Haas and Sherpa Pork Curry you won\'t find elsewhere.',
+      feat4T:'Vegetarian Options', feat4D:'An extensive vegetarian menu with rich curries, paneer dishes and fresh salads.',
+      showcaseTag:'Signature Dishes', showcaseH2:'Taste the <em>Difference</em>', showcaseDesc:'From the clay walls of our tandoor to your table — crafted with fire, spice and soul.',
+      menuTag:'Our Menu', menuH2:'What We <em>Serve</em>', menuLead:'From light starters to hearty mains — available for dine-in and takeaway.',
+      tabStarters:'Starters', tabChef:"Chef's Specials", tabTandoori:'Tandoori', tabTikka:'Tikka Masala',
+      tabKorma:'Korma', tabJalfrezi:'Jalfrezi', tabKarahi:'Karahi', tabMadVin:'Madras & Vindaloo',
+      tabDhansak:'Dhansak', tabVeg:'Vegetarian', tabBiryani:'Biryani', tabRice:'Rice & Bread', tabKids:'Kids Menu',
+      expTag:'The Experience', expH2:'More than a <em>Meal</em>', expLead:'We take care of every detail so you can relax and enjoy the journey from the Himalayas to your plate.',
+      exp1T:'Authentic Recipes', exp1D:'Traditional Nepali and Indian recipes, passed down through generations.',
+      exp2T:'Sea Views', exp2D:'Located on Paseo Marítimo Levante — enjoy stunning Mediterranean views while dining.',
+      exp3T:'Easy Takeaway', exp3D:'Order by phone for quick & delicious takeaway. Ready when you arrive.',
+      exp4T:'4.9 on Google', exp4D:'Over 343 five-star reviews. Come discover why guests keep coming back.',
+      resTag:'Book a Table', resH2:'Make a <em>Reservation</em>', resLead:'Reserve your table online or give us a call. We look forward to welcoming you.',
+      resCallTitle:'Call or WhatsApp', resCallDesc:'Happy to take bookings by phone or WhatsApp.',
+      resAddrTitle:'Address', resHoursTitle:'Opening Hours',
+      resHours:'Mon: Closed &nbsp;|&nbsp; Tue–Sun: 12:00–16:00 & 18:00–00:00',
+      resFormTitle:'Reserve Your Table', labelFirst:'First Name', labelLast:'Last Name',
+      labelEmail:'Email', labelPhone:'Phone', labelDate:'Date', labelTime:'Time', labelGuests:'Guests', labelSpecial:'Special Requests',
+      selectTime:'Select time…', selectGuests:'Select guests…',
+      resSubmitBtn:'Confirm Reservation', resNote:'🙏 We\'ll confirm by phone or WhatsApp within a few hours.',
+      successTitle:'Namaste! Thank You', successDesc:"Your reservation request has been received. We'll confirm shortly by phone or WhatsApp. We look forward to welcoming you to Casa Nepal!",
+      locTag:'Find Us', locH2:'We Are in <em>Torre del Mar</em>',
+      locLead:'Located on the beautiful Paseo Marítimo Levante 21, Torre del Mar — easy to find with parking nearby.',
+      locAddrLabel:'Address', locPhoneLabel:'Telephone', locHoursLabel:'Opening Hours',
+      locHoursVal:'Tuesday – Sunday: 12:00–16:00 & 18:00–00:00<br/><strong style="color:var(--crimson);">Monday: Closed</strong>',
+      locBtnBook:'Book a Table', locBtnMaps:'Open in Maps',
+      footerAbout:'Authentic Nepali & Indian cuisine on the Paseo Marítimo Levante, Torre del Mar. Where Himalayan tradition meets Mediterranean warmth — one dish at a time.',
+      footerNavTitle:'Navigate', footerAboutLink:'About Us', footerMenuLink:'Menu', footerExpLink:'Experience', footerResLink:'Reservations',
+      footerMenuTitle:'Menu', footerContactTitle:'Contact',
+      footerCopy:'© 2025 Casa Nepal · Torre del Mar, Málaga. All rights reserved.',
+      waLabel:'Chat with us', waSub:'via WhatsApp',
+    },
+    es: {
+      flag: '🇪🇸', code: 'ES',
+      navAbout: 'Nosotros', navMenu: 'Carta', navExperience: 'Experiencia', navFind: 'Ubicación', navReserve: 'Reservar',
+      heroEyebrow: 'Torre del Mar · Málaga',
+      heroH1: 'Donde el Himalaya<em> Se Encuentra con el Mar</em>',
+      heroSub: 'Auténtica cocina nepalesa e india — desde fragantes currys y especialidades del tandoor hasta momos artesanales. Cada plato cuenta una historia de especias de montaña y calidez mediterránea.',
+      heroBtnRes: 'Reservar Mesa', heroBtnMenu: 'Ver Carta',
+      heroStatRating: 'Valoración Google', heroStatReviews: 'Reseñas', heroStatCall: 'Llámanos',
+      hb1t:'Especias Himalaya', hb1s:'Recetas auténticas', hb2t:'Tandoor Especial', hb2s:'Sabor a fuego de leña', hb3t:'Momo Artesanal', hb3s:'Empanadillas nepalesas', hb4t:'Para Llevar', hb4s:'Takeaway disponible',
+      scrollLabel: 'Desplazar',
+      aboutTag: 'Nuestra Historia', aboutH2: 'Un Sabor de <em>Nepal</em> en Málaga',
+      aboutLead: 'Casa Nepal trae los sabores audaces y aromáticos del Himalaya a las soleadas costas de Torre del Mar. De recetas familiares transmitidas de generación en generación a especias cuidadosamente seleccionadas.',
+      feat1T:'Especias Himalaya', feat1D:'Especias seleccionadas a mano procedentes directamente de Nepal e India.',
+      feat2T:'Servicio en Mesa y Para Llevar', feat2D:'Disfruta de nuestro cálido comedor o pide tus platos favoritos para casa. Abierto 6 días.',
+      feat3T:'Especialidades del Chef', feat3D:'Platos únicos como el Poleko Haas y el Sherpa Pork Curry que no encontrarás en otro lugar.',
+      feat4T:'Opciones Vegetarianas', feat4D:'Una extensa carta vegetariana con currys, platos de paneer y ensaladas frescas.',
+      showcaseTag:'Platos Estrella', showcaseH2:'Saborea la <em>Diferencia</em>', showcaseDesc:'Desde las paredes de arcilla de nuestro tandoor hasta tu mesa — elaborado con fuego, especias y alma.',
+      menuTag:'Nuestra Carta', menuH2:'Lo Que <em>Servimos</em>', menuLead:'Desde entrantes ligeros hasta platos contundentes — disponible para comer en el restaurante y para llevar.',
+      tabStarters:'Entrantes', tabChef:'Esp. de la Casa', tabTandoori:'Tandoori', tabTikka:'Tikka Masala',
+      tabKorma:'Korma', tabJalfrezi:'Jalfrezi', tabKarahi:'Karahi', tabMadVin:'Madras & Vindaloo',
+      tabDhansak:'Dhansak', tabVeg:'Vegetariano', tabBiryani:'Briyani', tabRice:'Arroz & Pan', tabKids:'Menú Infantil',
+      expTag:'La Experiencia', expH2:'Más que una <em>Comida</em>', expLead:'Cuidamos cada detalle para que puedas relajarte y disfrutar del viaje desde el Himalaya hasta tu plato.',
+      exp1T:'Recetas Auténticas', exp1D:'Recetas tradicionales nepalesas e indias, transmitidas de generación en generación.',
+      exp2T:'Vistas al Mar', exp2D:'Situado en el Paseo Marítimo Levante — disfruta de impresionantes vistas mediterráneas.',
+      exp3T:'Para Llevar Fácil', exp3D:'Pide por teléfono para un takeaway rápido y delicioso. Listo cuando llegues.',
+      exp4T:'4.9 en Google', exp4D:'Más de 343 reseñas de cinco estrellas. Ven a descubrir por qué nuestros clientes vuelven.',
+      resTag:'Reservar Mesa', resH2:'Haz una <em>Reserva</em>', resLead:'Reserva tu mesa online o llámanos. Estaremos encantados de recibirte.',
+      resCallTitle:'Llama o WhatsApp', resCallDesc:'Encantados de tomar reservas por teléfono o WhatsApp.',
+      resAddrTitle:'Dirección', resHoursTitle:'Horario',
+      resHours:'Lun: Cerrado &nbsp;|&nbsp; Mar–Dom: 12:00–16:00 y 18:00–00:00',
+      resFormTitle:'Reserva Tu Mesa', labelFirst:'Nombre', labelLast:'Apellido',
+      labelEmail:'Email', labelPhone:'Teléfono', labelDate:'Fecha', labelTime:'Hora', labelGuests:'Comensales', labelSpecial:'Peticiones especiales',
+      selectTime:'Seleccionar hora…', selectGuests:'Seleccionar comensales…',
+      resSubmitBtn:'Confirmar Reserva', resNote:'🙏 Te confirmaremos por teléfono o WhatsApp en pocas horas.',
+      successTitle:'¡Namaste! Gracias', successDesc:'Tu solicitud de reserva ha sido recibida. Confirmaremos pronto por teléfono o WhatsApp. ¡Esperamos verte en Casa Nepal!',
+      locTag:'Encuéntranos', locH2:'Estamos en <em>Torre del Mar</em>',
+      locLead:'Situado en el hermoso Paseó Marítimo Levante 21, Torre del Mar — fácil de encontrar con aparcamiento cercano.',
+      locAddrLabel:'Dirección', locPhoneLabel:'Teléfono', locHoursLabel:'Horario',
+      locHoursVal:'Martes – Domingo: 12:00–16:00 y 18:00–00:00<br/><strong style="color:var(--crimson);">Lunes: Cerrado</strong>',
+      locBtnBook:'Reservar Mesa', locBtnMaps:'Abrir en Maps',
+      footerAbout:'Auténtica cocina nepalesa e india en el Paseó Marítimo Levante, Torre del Mar. Donde la tradición himalaya se encuentra con la calidez mediterránea — un plato a la vez.',
+      footerNavTitle:'Navegar', footerAboutLink:'Nosotros', footerMenuLink:'Carta', footerExpLink:'Experiencia', footerResLink:'Reservas',
+      footerMenuTitle:'Carta', footerContactTitle:'Contacto',
+      footerCopy:'© 2025 Casa Nepal · Torre del Mar, Málaga. Todos los derechos reservados.',
+      waLabel:'Escríbenos', waSub:'por WhatsApp',
+    },
+    fr: {
+      flag: '🇫🇷', code: 'FR',
+      navAbout: 'À Propos', navMenu: 'Menu', navExperience: 'Expérience', navFind: 'Nous Trouver', navReserve: 'Réserver',
+      heroEyebrow: 'Torre del Mar · Málaga',
+      heroH1: "Là où l'Himalaya<em> Rencontre la Mer</em>",
+      heroSub: "Cuisine népalaise et indienne authentique — des currys parfumés aux spécialités du tandoor jusqu'aux momos faits main. Chaque plat raconte une histoire d'épices de montagne et de chaleur méditerranéenne.",
+      heroBtnRes: 'Réserver une Table', heroBtnMenu: 'Voir le Menu',
+      heroStatRating: 'Note Google', heroStatReviews: 'Avis', heroStatCall: 'Appelez-nous',
+      hb1t:'Épices Himalayennes', hb1s:'Recettes authentiques', hb2t:'Spécialités Tandoor', hb2s:'Saveur au feu de bois', hb3t:'Momo Artisanaux', hb3s:'Raviolis népalais', hb4t:'À Emporter', hb4s:'Disponible',
+      scrollLabel: 'Défiler',
+      aboutTag: 'Notre Histoire', aboutH2: 'Un Goût du <em>Népal</em> à Málaga',
+      aboutLead: "Casa Nepal apporte les saveurs audacieuses et aromatiques de l'Himalaya sur les côtes ensoleillées de Torre del Mar. Des recettes familiales transmises de génération en génération jusqu'aux épices soigneusement sélectionnées.",
+      feat1T:'Épices Himalayennes', feat1D:'Épices sélectionnées à la main, sourcées directement du Népal et de l\'Inde.',
+      feat2T:'Sur Place & À Emporter', feat2D:'Profitez de notre salle chaleureuse ou commandez vos plats préférés à emporter. Ouvert 6 jours.',
+      feat3T:'Spécialités du Chef', feat3D:'Des plats uniques comme le Poleko Haas et le Sherpa Pork Curry introuvables ailleurs.',
+      feat4T:'Options Végétariennes', feat4D:'Un vaste menu végétarien avec des currys, des plats au paneer et des salades fraîches.',
+      showcaseTag:'Plats Signatures', showcaseH2:'Savourez la <em>Différence</em>', showcaseDesc:"Des murs d'argile de notre tandoor à votre table — préparés avec feu, épices et âme.",
+      menuTag:'Notre Menu', menuH2:'Ce Que Nous <em>Servons</em>', menuLead:"Des entrées légères aux plats généreux — disponibles sur place et à emporter.",
+      tabStarters:'Entrées', tabChef:'Spécialités du Chef', tabTandoori:'Tandoori', tabTikka:'Tikka Masala',
+      tabKorma:'Korma', tabJalfrezi:'Jalfrezi', tabKarahi:'Karahi', tabMadVin:'Madras & Vindaloo',
+      tabDhansak:'Dhansak', tabVeg:'Végétarien', tabBiryani:'Biryani', tabRice:'Riz & Pain', tabKids:'Menu Enfant',
+      expTag:"L'Expérience", expH2:'Plus qu\'un <em>Repas</em>', expLead:"Nous prenons soin de chaque détail pour que vous puissiez vous détendre et profiter du voyage de l'Himalaya à votre assiette.",
+      exp1T:'Recettes Authentiques', exp1D:'Recettes traditionnelles népalaises et indiennes, transmises de génération en génération.',
+      exp2T:'Vue sur la Mer', exp2D:'Situé sur le Paseo Marítimo Levante — profitez de superbes vues méditerranéennes.',
+      exp3T:'À Emporter Facile', exp3D:'Commandez par téléphone pour un plat rapide et délicieux. Prêt à votre arrivée.',
+      exp4T:'4.9 sur Google', exp4D:"Plus de 343 avis cinq étoiles. Venez découvrir pourquoi nos clients reviennent.",
+      resTag:'Réserver une Table', resH2:'Faire une <em>Réservation</em>', resLead:"Réservez votre table en ligne ou appelez-nous. Nous serons ravis de vous accueillir.",
+      resCallTitle:'Appelez ou WhatsApp', resCallDesc:'Heureux de prendre des réservations par téléphone ou WhatsApp.',
+      resAddrTitle:'Adresse', resHoursTitle:'Horaires',
+      resHours:'Lun: Fermé &nbsp;|&nbsp; Mar–Dim: 12:00–16:00 et 18:00–00:00',
+      resFormTitle:'Réservez Votre Table', labelFirst:'Prénom', labelLast:'Nom',
+      labelEmail:'Email', labelPhone:'Téléphone', labelDate:'Date', labelTime:'Heure', labelGuests:'Convives', labelSpecial:'Demandes spéciales',
+      selectTime:'Choisir une heure…', selectGuests:'Choisir le nombre…',
+      resSubmitBtn:'Confirmer la Réservation', resNote:'🙏 Nous confirmerons par téléphone ou WhatsApp dans quelques heures.',
+      successTitle:'Namaste ! Merci', successDesc:"Votre demande de réservation a été reçue. Nous confirmerons sous peu par téléphone ou WhatsApp. Nous avons hâte de vous accueillir à Casa Nepal !",
+      locTag:'Nous Trouver', locH2:'Nous Sommes à <em>Torre del Mar</em>',
+      locLead:'Situé au Paseó Marítimo Levante 21, Torre del Mar — facile à trouver avec un parking à proximité.',
+      locAddrLabel:'Adresse', locPhoneLabel:'Téléphone', locHoursLabel:'Horaires',
+      locHoursVal:'Mardi – Dimanche : 12:00–16:00 et 18:00–00:00<br/><strong style="color:var(--crimson);">Lundi : Fermé</strong>',
+      locBtnBook:'Réserver une Table', locBtnMaps:'Ouvrir dans Maps',
+      footerAbout:"Cuisine népalaise et indienne authentique sur le Paseó Marítimo Levante, Torre del Mar. Là où la tradition himalayenne rencontre la chaleur méditerranéenne — un plat à la fois.",
+      footerNavTitle:'Navigation', footerAboutLink:'À Propos', footerMenuLink:'Menu', footerExpLink:'Expérience', footerResLink:'Réservations',
+      footerMenuTitle:'Menu', footerContactTitle:'Contact',
+      footerCopy:'© 2025 Casa Nepal · Torre del Mar, Málaga. Tous droits réservés.',
+      waLabel:'Discutez avec nous', waSub:'via WhatsApp',
+    }
+  };
+
+  function applyLang(lang) {
+    const t = translations[lang];
+    if (!t) return;
+    const s = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
+    const st = (id, txt) => { const el = document.getElementById(id); if (el) el.textContent = txt; };
+
+    // Nav
+    st('navAbout', t.navAbout); st('navMenu', t.navMenu); st('navExperience', t.navExperience);
+    st('navFind', t.navFind); document.querySelectorAll('.nav-cta').forEach(el => el.textContent = t.navReserve);
+    st('mNavAbout', t.navAbout); st('mNavMenu', t.navMenu); st('mNavExp', t.navExperience);
+    st('mNavFind', t.navFind); st('mNavReserve', t.navReserve === 'Reserve' ? 'Reserve a Table' : t.navReserve);
+
+    // Hero
+    st('heroEyebrow', t.heroEyebrow); s('heroH1', t.heroH1); s('heroSub', t.heroSub);
+    st('heroBtnRes', t.heroBtnRes); st('heroBtnMenu', t.heroBtnMenu);
+    st('heroStatRating', t.heroStatRating); st('heroStatReviews', t.heroStatReviews); st('heroStatCall', t.heroStatCall);
+    st('hb1t', t.hb1t); st('hb1s', t.hb1s); st('hb2t', t.hb2t); st('hb2s', t.hb2s);
+    st('hb3t', t.hb3t); st('hb3s', t.hb3s); st('hb4t', t.hb4t); st('hb4s', t.hb4s);
+    st('scrollLabel', t.scrollLabel);
+
+    // About
+    st('aboutTag', t.aboutTag); s('aboutH2', t.aboutH2); st('aboutLead', t.aboutLead);
+    st('feat1T', t.feat1T); st('feat1D', t.feat1D); st('feat2T', t.feat2T); st('feat2D', t.feat2D);
+    st('feat3T', t.feat3T); st('feat3D', t.feat3D); st('feat4T', t.feat4T); st('feat4D', t.feat4D);
+
+    // Showcase
+    st('showcaseTag', t.showcaseTag); s('showcaseH2', t.showcaseH2); st('showcaseDesc', t.showcaseDesc);
+
+    // Menu
+    st('menuTag', t.menuTag); s('menuH2', t.menuH2); st('menuLead', t.menuLead);
+    st('tabStarters', t.tabStarters); st('tabChef', t.tabChef); st('tabTandoori', t.tabTandoori);
+    st('tabTikka', t.tabTikka); st('tabKorma', t.tabKorma); st('tabJalfrezi', t.tabJalfrezi);
+    st('tabKarahi', t.tabKarahi); st('tabMadVin', t.tabMadVin); st('tabDhansak', t.tabDhansak);
+    st('tabVeg', t.tabVeg); st('tabBiryani', t.tabBiryani); st('tabRice', t.tabRice); st('tabKids', t.tabKids);
+
+    // Experience
+    st('expTag', t.expTag); s('expH2', t.expH2); st('expLead', t.expLead);
+    st('exp1T', t.exp1T); st('exp1D', t.exp1D); st('exp2T', t.exp2T); st('exp2D', t.exp2D);
+    st('exp3T', t.exp3T); st('exp3D', t.exp3D); st('exp4T', t.exp4T); st('exp4D', t.exp4D);
+
+    // Reservation
+    st('resTag', t.resTag); s('resH2', t.resH2); st('resLead', t.resLead);
+    st('resCallTitle', t.resCallTitle); st('resCallDesc', t.resCallDesc);
+    st('resAddrTitle', t.resAddrTitle); st('resHoursTitle', t.resHoursTitle); s('resHours', t.resHours);
+    st('resFormTitle', t.resFormTitle); st('labelFirst', t.labelFirst); st('labelLast', t.labelLast);
+    st('labelEmail', t.labelEmail); st('labelPhone', t.labelPhone); st('labelDate', t.labelDate);
+    st('labelTime', t.labelTime); st('labelGuests', t.labelGuests); st('labelSpecial', t.labelSpecial);
+    st('resSubmitBtn', t.resSubmitBtn); st('resNote', t.resNote);
+    const timePH = document.getElementById('selectTimePlaceholder'); if (timePH) timePH.textContent = t.selectTime;
+    const guestsPH = document.getElementById('selectGuestsPlaceholder'); if (guestsPH) guestsPH.textContent = t.selectGuests;
+    st('successTitle', t.successTitle); st('successDesc', t.successDesc);
+
+    // Location
+    st('locTag', t.locTag); s('locH2', t.locH2); st('locLead', t.locLead);
+    st('locAddrLabel', t.locAddrLabel); st('locPhoneLabel', t.locPhoneLabel); st('locHoursLabel', t.locHoursLabel);
+    s('locHoursVal', t.locHoursVal); st('locBtnBook', t.locBtnBook); st('locBtnMaps', t.locBtnMaps);
+
+    // Footer
+    st('footerAbout', t.footerAbout); st('footerNavTitle', t.footerNavTitle);
+    st('footerAboutLink', t.footerAboutLink); st('footerMenuLink', t.footerMenuLink);
+    st('footerExpLink', t.footerExpLink); st('footerResLink', t.footerResLink);
+    st('footerMenuTitle', t.footerMenuTitle); st('footerContactTitle', t.footerContactTitle);
+    st('footerCopy', t.footerCopy);
+    st('waLabel', t.waLabel); st('waSub', t.waSub);
+
+    // Selectors UI
+    document.getElementById('currentFlag').textContent = t.flag;
+    document.getElementById('currentLangCode').textContent = t.code;
+    document.getElementById('currentFlagM').textContent = t.flag;
+    document.getElementById('currentLangCodeM').textContent = t.code;
+    document.querySelectorAll('.lang-option').forEach(o => {
+      const l = o.dataset.lang || o.dataset.langM;
+      o.classList.toggle('active', l === lang);
+    });
+    localStorage.setItem('cn-lang', lang);
+  }
+
+  // Lang dropdowns
+  const ls = document.getElementById('langSelector');
+  document.getElementById('langBtn').addEventListener('click', e => { e.stopPropagation(); ls.classList.toggle('open'); });
+  const lsm = document.getElementById('langSelectorM');
+  document.getElementById('langBtnM').addEventListener('click', e => { e.stopPropagation(); lsm.classList.toggle('open'); });
+  document.addEventListener('click', () => { ls.classList.remove('open'); lsm.classList.remove('open'); });
+  document.querySelectorAll('#langSelector .lang-option').forEach(o => o.addEventListener('click', () => { applyLang(o.dataset.lang); ls.classList.remove('open'); }));
+  document.querySelectorAll('#langSelectorM .lang-option').forEach(o => o.addEventListener('click', () => { applyLang(o.dataset.langM); lsm.classList.remove('open'); }));
+
+  // Init lang
+  (function() {
+    const saved = localStorage.getItem('cn-lang');
+    if (saved && translations[saved]) { applyLang(saved); return; }
+    const b = (navigator.language || '').toLowerCase().slice(0,2);
+    applyLang({ es:'es', fr:'fr' }[b] || 'en');
+  })();
+</script>
+</body>
+</html>
