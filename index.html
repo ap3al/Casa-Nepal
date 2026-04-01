@@ -1274,19 +1274,27 @@
     const orig = btn.textContent;
     btn.textContent = '⏳ Sending…';
     btn.disabled = true;
+
+    // Use FormData directly (no URLSearchParams, no custom headers)
+    // This is the correct way to POST to Google Apps Script with no-cors.
+    // The script runs fully server-side — emails ARE sent even though
+    // the browser can't read the response due to CORS restrictions.
     const fd = new FormData(form);
-    const params = new URLSearchParams();
-    fd.forEach((v, k) => params.append(k, v));
-    fetch(form.action, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: params.toString() })
-      .then(() => {
-        form.style.display = 'none';
-        document.getElementById('successMsg').style.display = 'block';
-      })
-      .catch(() => {
-        btn.textContent = orig;
-        btn.disabled = false;
-        alert('Problem sending. Please call or WhatsApp: 951 003 267');
-      });
+
+    fetch(form.action, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: fd
+    })
+    .then(() => {
+      form.style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    })
+    .catch(() => {
+      btn.textContent = orig;
+      btn.disabled = false;
+      alert('Problem sending. Please call or WhatsApp: 951 003 267');
+    });
   }
 
   // ── LANGUAGE SYSTEM ──
