@@ -469,6 +469,9 @@
         <div class="lang-option" data-lang-m="fr">🇫🇷 Français</div>
       </div>
     </div>
+    <button class="theme-toggle" id="themeToggleM" aria-label="Toggle theme" style="display:flex;">
+      <div class="theme-toggle-knob" id="themeKnobM">☀️</div>
+    </button>
   </div>
 </div>
 
@@ -489,7 +492,7 @@
     </div>
     <div class="hero-stats">
       <div class="hero-stat">
-        <span class="stat-num">4.7★</span>
+        <span class="stat-num">4.9★</span>
         <span class="stat-label" id="heroStatRating">Google Rating</span>
       </div>
       <div class="hero-stat">
@@ -518,7 +521,7 @@
       <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=600&q=80" alt="Spices" />
     </div>
     <div class="about-badge">
-      <strong>4.7 ★</strong>
+      <strong>4.9 ★</strong>
       <span>300+ Happy Guests</span>
     </div>
   </div>
@@ -820,7 +823,7 @@
     </div>
     <div class="exp-card reveal delay-4">
       <span class="exp-icon">⭐</span>
-      <h3 id="exp4T">4.7 on Google</h3>
+      <h3 id="exp4T">4.9 on Google</h3>
       <p id="exp4D">Over 300+ five-star reviews from happy guests. Taste the difference and join our growing family of regulars.</p>
     </div>
   </div>
@@ -946,7 +949,7 @@
   </div>
   <div class="reviews-summary reveal" style="max-width:700px;margin:3rem auto 0;">
     <div class="reviews-summary-rating">
-      <span class="reviews-summary-num">4.7</span>
+      <span class="reviews-summary-num">4.9</span>
       <span class="reviews-summary-stars">★★★★★</span>
       <span class="reviews-summary-label">Google Rating</span>
     </div>
@@ -991,7 +994,7 @@
         <div>
           <h4>Google Rating</h4>
           <div class="rating-row">
-            <div class="rating-num">4.7</div>
+            <div class="rating-num">4.9</div>
             <div class="stars">★★★★★</div>
             <div class="rating-count">300+ reviews</div>
           </div>
@@ -1100,7 +1103,7 @@
         <div>
           <div class="loc-label">Google Rating</div>
           <div class="rating-row">
-            <div class="rating-num">4.7</div>
+            <div class="rating-num">4.9</div>
             <div class="stars">★★★★★</div>
             <div class="rating-count">300+ reviews</div>
           </div>
@@ -1177,15 +1180,21 @@
   // ── THEME TOGGLE ──
   const themeToggle = document.getElementById('themeToggle');
   const themeKnob = document.getElementById('themeKnob');
+  const themeToggleM = document.getElementById('themeToggleM');
+  const themeKnobM = document.getElementById('themeKnobM');
   let currentTheme = localStorage.getItem('cn-theme') || 'dark';
   document.documentElement.dataset.theme = currentTheme;
   themeKnob.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
-  themeToggle.addEventListener('click', () => {
+  themeKnobM.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+  function toggleTheme() {
     currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
     document.documentElement.dataset.theme = currentTheme;
     themeKnob.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+    themeKnobM.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
     localStorage.setItem('cn-theme', currentTheme);
-  });
+  }
+  themeToggle.addEventListener('click', toggleTheme);
+  themeToggleM.addEventListener('click', toggleTheme);
 
   // ── HAMBURGER ──
   const hamburger = document.getElementById('hamburger');
@@ -1268,7 +1277,7 @@
       exp1T:'Authentic Recipes', exp1D:'Traditional Nepali and Indian recipes, passed down through generations.',
       exp2T:'Sea Views', exp2D:'Located on Paseo Marítimo Levante — enjoy stunning Mediterranean views while dining.',
       exp3T:'Easy Takeaway', exp3D:'Order by phone for quick & delicious takeaway. Ready when you arrive.',
-      exp4T:'4.7 on Google', exp4D:'Over 300 five-star reviews. Come discover why guests keep coming back.',
+      exp4T:'4.9 on Google', exp4D:'Over 300 five-star reviews. Come discover why guests keep coming back.',
       resTag:'Book a Table', resH2:'Make a <em>Reservation</em>', resLead:'Reserve your table online or give us a call. We look forward to welcoming you.',
       resCallTitle:'Call or WhatsApp', resCallDesc:'Happy to take bookings by phone or WhatsApp.',
       resAddrTitle:'Address', resHoursTitle:'Opening Hours',
@@ -1314,7 +1323,7 @@
       exp1T:'Recetas Auténticas', exp1D:'Recetas tradicionales nepalesas e indias, transmitidas de generación en generación.',
       exp2T:'Vistas al Mar', exp2D:'Situado en el Paseo Marítimo Levante — disfruta de impresionantes vistas mediterráneas.',
       exp3T:'Para Llevar Fácil', exp3D:'Pide por teléfono para un takeaway rápido y delicioso. Listo cuando llegues.',
-      exp4T:'4.7 en Google', exp4D:'Más de 300 reseñas de cinco estrellas. Ven a descubrir por qué nuestros clientes vuelven.',
+      exp4T:'4.9 en Google', exp4D:'Más de 300 reseñas de cinco estrellas. Ven a descubrir por qué nuestros clientes vuelven.',
       resTag:'Reservar Mesa', resH2:'Haz una <em>Reserva</em>', resLead:'Reserva tu mesa online o llámanos. Estaremos encantados de recibirte.',
       resCallTitle:'Llama o WhatsApp', resCallDesc:'Encantados de tomar reservas por teléfono o WhatsApp.',
       resAddrTitle:'Dirección', resHoursTitle:'Horario',
@@ -1360,7 +1369,7 @@
       exp1T:'Recettes Authentiques', exp1D:'Recettes traditionnelles népalaises et indiennes, transmises de génération en génération.',
       exp2T:'Vue sur la Mer', exp2D:'Situé sur le Paseo Marítimo Levante — profitez de superbes vues méditerranéennes.',
       exp3T:'À Emporter Facile', exp3D:'Commandez par téléphone pour un plat rapide et délicieux. Prêt à votre arrivée.',
-      exp4T:'4.7 sur Google', exp4D:"Plus de 300+ avis cinq étoiles. Venez découvrir pourquoi nos clients reviennent.",
+      exp4T:'4.9 sur Google', exp4D:"Plus de 300+ avis cinq étoiles. Venez découvrir pourquoi nos clients reviennent.",
       resTag:'Réserver une Table', resH2:'Faire une <em>Réservation</em>', resLead:"Réservez votre table en ligne ou appelez-nous. Nous serons ravis de vous accueillir.",
       resCallTitle:'Appelez ou WhatsApp', resCallDesc:'Heureux de prendre des réservations par téléphone ou WhatsApp.',
       resAddrTitle:'Adresse', resHoursTitle:'Horaires',
